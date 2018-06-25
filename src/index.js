@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
+  constructor(props) {
+    // JavaScript のクラスでは常に super を呼ぶ必要がある
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
-        {this.props.value}
+      <button
+        className="square"
+        onClick={() => this.setState({ value: 'X' })}
+      >
+        {this.state.value}
       </button>
     );
   }
